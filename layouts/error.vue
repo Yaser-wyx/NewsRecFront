@@ -14,13 +14,10 @@
 </template>
 
 <script>
-  import Baidu from "../components/mixin/utils/Baidu";
-  import detectDevice from "../components/mixin/utils/detectDevice";
 
   export default {
     props: ['error'],
     name: 'error',
-    mixins:[Baidu,detectDevice],
 
     methods: {
       back() {

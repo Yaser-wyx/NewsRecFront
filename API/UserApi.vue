@@ -3,21 +3,24 @@
 </template>
 
 <script>
+
 import ApiHelper from "@/API/ApiHelper";
-import {Log} from "@/utils";
 
 export default {
   name: "UserApi",
+  extends: ApiHelper,
   data() {
     return {
-      baseUrl: "/v1/user"
+      baseUrl: "/v1/user",
     }
   },
-  extends: ApiHelper,
   methods: {
-    async registerApi(user) {
-      Log(user)
-      return await this.post(this.baseUrl + "/register", user)
+    registerApi(user) {
+      return this.post(this.baseUrl + "/register", user)
+    },
+    loginApi(user) {
+      return this.post(this.baseUrl + "/login", user)
+
     }
   }
 

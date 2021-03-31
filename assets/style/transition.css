@@ -97,6 +97,13 @@
   -o-transition: all 0.5s cubic-bezier(.25, .1, .25, 1);
   transition: all 0.5s cubic-bezier(.25, .1, .25, 1);
 }
+.transition-200ms {
+  -webkit-transition: all 0.2s cubic-bezier(.25, .1, .25, 1) !important;
+  -moz-transition: all 0.2s cubic-bezier(.25, .1, .25, 1) !important;
+  -ms-transition: all 0.2s cubic-bezier(.25, .1, .25, 1) !important;
+  -o-transition: all 0.2s cubic-bezier(.25, .1, .25, 1) !important;
+  transition: all 0.2s cubic-bezier(.25, .1, .25, 1) !important;
+}
 
 .transition-500ms {
   -webkit-transition: all 0.5s cubic-bezier(.25, .1, .25, 1) !important;

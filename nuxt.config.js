@@ -16,8 +16,7 @@ export default {
     ],
     link: [
       {rel: 'icon', type: 'image/x-icon', href: '/favicon.ico'},
-      {rel: 'stylesheet', href: 'https://at.alicdn.com/t/font_2379105_2pb2tyzizz2.css'},//阿里icon设置
-
+      {rel: 'stylesheet', href: 'https://at.alicdn.com/t/font_2379105_sw5ye6gcr5.css'},//阿里icon设置
     ]
   },
   router: {

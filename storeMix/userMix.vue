@@ -9,10 +9,10 @@
       userStore: function () {
         return this.$store.state;
       },
-      user: function () {
+      userSt: function () {
         return this.userStore.user;
       },
-      isLogin: function () {
+      isLoginSt: function () {
         return this.userStore.isLogin;
       }
     },
@@ -20,10 +20,10 @@
       commit(name, data) {
         this.$store.commit(`${name}`, data)
       },
-      login(user) {
+      loginSt(user) {
         this.commit("login", user)
       },
-      logout() {
+      logoutSt() {
         this.commit("logout")
       }
     }

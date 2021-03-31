@@ -5,11 +5,8 @@
 </template>
 
 <script>
-  import Baidu from "../components/mixin/utils/Baidu";
-  import detectDevice from "../components/mixin/utils/detectDevice";
   export default {
     name: "index",
-    mixins:[Baidu,detectDevice],
   }
 </script>
 
