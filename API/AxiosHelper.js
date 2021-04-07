@@ -11,6 +11,26 @@ axios.defaults.crossDomain = true
 const $cookie = require('js-cookie');
 
 export default {//导出方法
+  getAdmin(url, params = {}, headers = {}) {
+    let token = $cookie.get("AdminAuthorization")
+    if (token) {
+      token = "Bearer " + token
+      headers["Authorization"] = token
+    }
+    return axios.get(url, {params: params, headers: headers})
+  },
+  postAdmin(url, params, headers) {
+    let token = $cookie.get("AdminAuthorization")
+    if (token) {
+      token = "Bearer " + token
+      headers["Authorization"] = token
+    }
+    if (headers['Content-Type'] === 'application/x-www-form-urlencoded') {
+      return axios.post(url, qs.stringify(params), {headers: headers})
+    } else {
+      return axios.post(url, JSON.stringify(params), {headers: headers})
+    }
+  },
   get(url, params = {}, headers = {}) {
     let token = $cookie.get("Authorization")
     if (token) {

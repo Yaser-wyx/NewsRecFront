@@ -18,7 +18,8 @@ export default {
     registerApi(user) {
       return this.post(this.baseUrl + "/register", user)
     },
-    loginApi(user) {
+    loginApi(user, isAdmin = false) {
+      user.isAdmin = isAdmin
       return this.post(this.baseUrl + "/login", user)
 
     }

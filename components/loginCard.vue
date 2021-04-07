@@ -72,7 +72,7 @@
           </div>
           <div class="my-inline-div font-12" style="line-height:40px;height:40px">
             <v-icon color="#071F46" size="18px">iconfont icon-eye1</v-icon>
-            浏览了34篇新闻
+            浏览了{{ userSt.userViewedNum }}篇新闻
           </div>
           <div class="web-font-pingfang-thin font-14">
             <div class="my-inline-div pt-1">兴趣：</div>

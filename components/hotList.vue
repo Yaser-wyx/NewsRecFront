@@ -8,12 +8,12 @@
          v-for="(news,index) in hotList.list"
          :key="news.docId" style="  line-height: 35px;height: 35px;">
       {{ index + 1 }}.
-      <div class="my-inline-div title-wrapper text-more">
+      <div class="my-inline-div title-wrapper text-more" @click="clickHot(news.docId)">
         {{ news.title }}
       </div>
       <div class="my-inline-div" style="width: 15%;text-align: right;">
         <v-icon small>iconfont icon-hot</v-icon>
-        <span class="font-12">214</span>
+        <span class="font-12">{{ news.hotValue }}</span>
       </div>
     </div>
 
@@ -25,6 +25,11 @@ export default {
   name: "hotList",
   props: {
     hotList: Object
+  },
+  methods: {
+    clickHot(newsId) {
+      this.$emit("newsClick", newsId)
+    }
   }
 }
 </script>

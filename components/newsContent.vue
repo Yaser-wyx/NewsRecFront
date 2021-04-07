@@ -75,11 +75,12 @@
 <script>
 import {Log, parseTime} from "@/utils";
 import NewsApi from "@/API/NewsApi";
+import userMix from "@/storeMix/userMix";
 
 export default {
   name: "newsContent",
   props: {news: Object},
-  mixins: [NewsApi],
+  mixins: [NewsApi, userMix],
   methods: {
     back() {
       this.$emit("back");
@@ -88,11 +89,16 @@ export default {
       this.$emit("newsClick", this.similarNews[index].docId)
     },
     async setUserScore() {
-      let newsRating = await this.setUserScoreApi(this.news.docId, this.newsRating.userScore)
-      if (newsRating) {
-        this.newsRating = newsRating;
-        this.readOnly = true
+      if (this.isLoginSt) {
+        let newsRating = await this.setUserScoreApi(this.news.docId, this.newsRating.userScore)
+        if (newsRating) {
+          this.newsRating = newsRating;
+          this.readOnly = true
+        }
+      } else {
+        this.$message.warning("请登录后再进行评分！")
       }
+
     },
     init() {
       let self = document.getElementsByClassName('appendQr_wrap')[0];
@@ -104,14 +110,17 @@ export default {
       this.getNewsScore()
     },
     async getNewsScore() {
-      let newsRating = await this.getUserNewsScoreApi(this.news.docId)
-      if (newsRating) {
-        this.newsRating = newsRating;
-        this.readOnly = newsRating.userScore > 0
+      if (this.news.docId) {
+        let newsRating = await this.getUserNewsScoreApi(this.news.docId)
+        if (newsRating) {
+          this.newsRating = newsRating;
+          this.readOnly = newsRating.userScore > 0
+        }
       }
     },
     async getSimilarNews() {
-      this.similarNews = await this.getSimilarNewsApi(this.news.docId)
+      if (this.news.docId)
+        this.similarNews = await this.getSimilarNewsApi(this.news.docId)
     }
 
   },

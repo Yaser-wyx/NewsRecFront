@@ -38,7 +38,7 @@
       </div>
       <div class="right mr-2">
         <v-icon color="#FF5D68" dense class="my-inline-div">iconfont icon-hot</v-icon>
-        <div class="my-inline-div web-font-pingfang-thin font-12" style="color:#FF5D68;padding-top: 2px">381</div>
+        <div class="my-inline-div web-font-pingfang-thin font-12" style="color:#FF5D68;padding-top: 2px">{{ newsItem.hotValue }}</div>
       </div>
     </div>
     <div class="hr"></div>

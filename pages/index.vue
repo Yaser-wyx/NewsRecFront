@@ -19,14 +19,11 @@
           <!--显示新闻内容-->
         </div>
       </transition>
-
-
     </div>
-
     <div class="other-wrap ">
       <search @searchEvent="getSearch"></search>
       <loginCard class="mt-5"></loginCard>
-      <hotList class="mt-5" :hotList="hotList"></hotList>
+      <hotList class="mt-5" @newsClick="newsClick" :hotList="hotList"></hotList>
     </div>
   </div>
 </template>
@@ -37,6 +34,9 @@ import {Log} from "@/utils";
 import NewsApi from "@/API/NewsApi";
 
 export default {
+  head: {
+    title: "NewsRec - 首页"
+  },
   data() {
     return {
       page: {
